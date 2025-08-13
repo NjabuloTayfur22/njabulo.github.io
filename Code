@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Njabulo Nomvete | Software Developer</title>
+    <style>
+        /* General Styles */
+        body {
+            background-color: #222831;
+            color: #EEEEEE;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 960px;
+            margin: auto;
+            overflow: auto;
+            padding: 0 20px;
+        }
+        h1, h2, h3 {
+            color: #00ADB5;
+        }
+        a {
+            color: #00ADB5;
+            text-decoration: none;
+        }
+
+        /* Header & Navigation */
+        .main-header {
+            background: #393E46;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .main-header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #EEEEEE;
+        }
+        .main-nav a {
+            color: #EEEEEE;
+            margin-left: 15px;
+        }
+        .main-nav a:hover {
+            color: #00ADB5;
+        }
+
+        /* Sections & Cards */
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid #393E46;
+        }
+        .card {
+            background: #393E46;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        
+        /* Hero Section */
+        #hero {
+            text-align: center;
+            padding: 60px 0;
+        }
+        #hero img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #00ADB5;
+        }
+        #hero .cta-button {
+            display: inline-block;
+            background: #00ADB5;
+            color: #FFFFFF;
+            padding: 12px 25px;
+            margin-top: 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        #hero .cta-button:hover {
+            opacity: 0.9;
+        }
+
+        /* Skills List */
+        .skills-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .skills-list li {
+            background: #393E46;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+        }
+
+        /* Footer */
+        .main-footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            [cite_start]<div class="logo">Njabulo Nomvete [cite: 1, 2]</div>
+            <nav class="main-nav">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section id="hero">
+            <img src="Profile Photo.jpg" alt="Njabulo Nomvete">
+            [cite_start]<h1>Njabulo Nomvete [cite: 1, 2]</h1>
+            [cite_start]<h3>Aspiring Software Developer [cite: 7]</h3>
+            [cite_start]<p>Passionate about digital innovation and solving practical problems through technology. [cite: 11]</p>
+            <a href="#projects" class="cta-button">View My Projects</a>
+        </section>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="card">
+                <p>
+                    [cite_start]I am an aspiring software developer currently pursuing a BSc in Information Technology at Nelson Mandela University. [cite: 7] [cite_start]I have a strong academic record with prior distinctions and a Suma Cum Laude in Business Studies. [cite: 8] [cite_start]I am skilled in web development and programming across Python, Java, JavaScript, and C#. [cite: 9] [cite_start]I am passionate about education and community development, and I am committed to continuous learning and collaborative project delivery. [cite: 11, 12]
+                </p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-list">
+                <ul>
+                    [cite_start]<li><strong>Programming Languages:</strong> Python, Java, JavaScript, C# [cite: 16]</li>
+                    [cite_start]<li><strong>Web Development:</strong> HTML, CSS, React [cite: 19]</li>
+                    [cite_start]<li><strong>Productivity:</strong> MS Office, Google Workspace [cite: 17]</li>
+                    [cite_start]<li><strong>Digital Marketing:</strong> LinkedIn Ads, Meta Business Suite [cite: 18]</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>My Projects</h2>
+            <div class="card">
+                [cite_start]<h3>Student Record Management System [cite: 54]</h3>
+                [cite_start]<p>Developed a web application to streamline the management of student records, improving administrative efficiency by 30%. [cite: 55] [cite_start]Utilized technologies such as HTML, CSS and JavaScript. [cite: 56]</p>
+            </div>
+            <div class="card">
+                [cite_start]<h3>Personal Portfolio Website [cite: 57]</h3>
+                [cite_start]<p>Created a personal portfolio website to showcase projects and skills, enhancing my web development skills and online presence. [cite: 58]</p>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Work Experience</h2>
+            <div class="card">
+                [cite_start]<h3>Intern at HexSoftwares [cite: 23, 25]</h3>
+                [cite_start]<p><em>Feb 2025 – May 2025 [cite: 24]</em></p>
+                <ul>
+                    [cite_start]<li>Developed and maintained web applications using HTML, CSS, and JavaScript. [cite: 26]</li>
+                    [cite_start]<li>Practiced Python programming in a team environment. [cite: 27]</li>
+                    [cite_start]<li>Gained exposure to software development workflows and version control using Git. [cite: 28]</li>
+                </ul>
+            </div>
+            <div class="card">
+                [cite_start]<h3>Tutor in Business Numerical Skills at Nelson Mandela Uni [cite: 31, 33]</h3>
+                [cite_start]<p><em>April 2024 – Nov 2024 [cite: 32]</em></p>
+                <ul>
+                    [cite_start]<li>Provided academic support and tutoring to first-year students. [cite: 34]</li>
+                    [cite_start]<li>Explained quantitative concepts and guided students through problem-solving exercises. [cite: 35]</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="education">
+            <h2>Education & Certifications</h2>
+            <div class="card">
+                <h3>Education</h3>
+                [cite_start]<p><strong>BSc in Information Technology</strong> - Nelson Mandela University (NMMU) [cite: 7, 61]</p>
+                [cite_start]<p><em>Feb 2024 – April 2026 [cite: 61, 62]</em></p>
+            </div>
+             <div class="card">
+                <h3>Certifications</h3>
+                <ul>
+                    [cite_start]<li>Google IT Support Professional Certificate (2025) [cite: 63]</li>
+                    [cite_start]<li>Introduction to Cybersecurity (2024) [cite: 63]</li>
+                    [cite_start]<li>freeCodeCamp Certifications (Responsive Web Design, JavaScript, APIs) (2024) [cite: 63]</li>
+                    [cite_start]<li>Cisco Certified Network Associate (CCNA) (2025) [cite: 63]</li>
+                    [cite_start]<li>Microsoft Azure Fundamentals (AZ-900) (2025) [cite: 63]</li>
+                </ul>
+            </div>
+        </section>
+
+
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <div class="card" style="text-align: center;">
+                <p>I'm always open to discussing new projects and opportunities.</p>
+                [cite_start]<p><strong>Email:</strong> <a href="mailto:njabulonomvete@gmail.com">njabulonomvete@gmail.com</a> [cite: 4]</p>
+                <p>
+                    <a href="" target="_blank">GitHub</a> | 
+                    [cite_start]<a href="" target="_blank">LinkedIn</a> [cite: 5]
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 Njabulo Nomvete</p>
+    </footer>
+
+</body>
+</html>
