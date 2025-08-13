@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Njabulo Nomvete | Software Developer Portfolio</title>
+    <style>
+        /* --- Universal Styles & Font --- */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Orbitron:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #00ffff; /* Neon Cyan/Teal */
+            --secondary-color: #ff00ff; /* Neon Magenta for accents */
+            --background-color: #0a0a14; /* Deep, dark blue/black */
+            --card-background: rgba(15, 23, 42, 0.7); /* Semi-transparent dark blue */
+            --text-color: #e0e0e0;
+            --header-font: 'Orbitron', sans-serif;
+            --body-font: 'Roboto', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: var(--body-font);
+            overflow-x: hidden;
+        }
+
+        /* --- Particle.js Background --- */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        /* --- General Layout & Typography --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--header-font);
+            color: var(--primary-color);
+            text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color);
+        }
+        
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        /* --- Navigation Bar --- */
+        .navbar {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(10, 10, 20, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            font-family: var(--header-font);
+            font-size: 1.8rem;
+            color: #fff;
+            text-shadow: 0 0 8px var(--primary-color);
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 1rem;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+            text-shadow: 0 0 5px var(--primary-color);
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 0 15px var(--primary-color), inset 0 0 10px var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            font-family: var(--body-font);
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: transparent;
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border: 2px solid var(--primary-color);
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-color);
+            color: var(--background-color);
+            box-shadow: 0 0 20px var(--primary-color);
+        }
+
+        /* --- Card Styles for Sections --- */
+        .card {
+            background: var(--card-background);
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+        /* --- Skills Section --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .skill-item {
+            background: var(--card-background);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+             border-color: var(--primary-color);
+             transform: scale(1.05);
+        }
+
+        /* --- Projects Section --- */
+        #projects {
+            background-image: linear-gradient(rgba(10, 10, 20, 0.9), rgba(10, 10, 20, 0.9)), url('another picture.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        /* --- Experience Section (Timeline) --- */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary-color);
+            box-shadow: 0 0 10px var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--background-color);
+            border: 4px solid var(--primary-color);
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-left {
+            left: 0;
+        }
+
+        .timeline-right {
+            left: 50%;
+        }
+
+        .timeline-right::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background: var(--card-background);
+            position: relative;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .timeline-content h3 {
+            color: var(--primary-color);
+        }
+        
+        .timeline-content .date {
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* --- Contact Section --- */
+        #contact .card {
+            text-align: center;
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            font-size: 2rem;
+            margin: 0 15px;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+            text-shadow: 0 0 10px var(--primary-color);
+        }
+        
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid rgba(0, 255, 255, 0.2);
+            margin-top: 50px;
+        }
+
+        /* --- Scroll Animations --- */
+        .hidden {
+            opacity: 0;
+            filter: blur(5px);
+            transform: translateX(-100%);
+            transition: all 1s;
+        }
+        
+        .show {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateX(0);
+        }
+
+        /* --- Responsive Design --- */
+        @media(max-width: 768px) {
+            .navbar .container {
+                flex-direction: column;
+            }
+            .nav-links {
+                margin-top: 10px;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .timeline::after {
+                left: 31px;
+            }
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            .timeline-item::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+            .timeline-left::after, .timeline-right::after {
+                left: 21px;
+            }
+            .timeline-right {
+                left: 0%;
+            }
+        }
+    </style>
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Particle.js container -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="navbar-logo">NN</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <img src="Profile Photo.jpg" alt="Njabulo Nomvete" class="hero-img">
+                <h1 class="hero-title">Njabulo Nomvete</h1>
+                <p class="hero-subtitle">Aspiring Software Developer | Digital Innovator</p>
+                <a href="#projects" class="cta-button">Explore My Work</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- About Section -->
+        <section id="about" class="hidden">
+            <h2>About Me</h2>
+            <div class="card">
+                <p style="text-align: center; font-size: 1.1rem; line-height: 1.8;">
+                    I am a driven and aspiring software developer pursuing a BSc in Information Technology. With a strong foundation in Python, Java, and JavaScript, and experience building real-world applications, I am passionate about leveraging technology to solve practical problems. My background in tutoring and community outreach has instilled in me a commitment to continuous learning, collaboration, and making a tangible impact.
+                </p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="hidden">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Python</div>
+                <div class="skill-item">Java</div>
+                <div class="skill-item">JavaScript</div>
+                <div class="skill-item">C#</div>
+                <div class="skill-item">HTML5</div>
+                <div class="skill-item">CSS3</div>
+                <div class="skill-item">React</div>
+                <div class="skill-item">Git & GitHub</div>
+                <div class="skill-item">AI Concepts</div>
+                <div class="skill-item">REST APIs</div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Projects Section -->
+    <section id="projects" class="hidden">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card card">
+                    <h3>Student Record Management System</h3>
+                    <p>A web-based application designed to digitize and streamline the management of student records. This project improved administrative efficiency by 30% and provided a secure, accessible platform for data handling. Technologies used include HTML, CSS, and JavaScript for a dynamic front-end.</p>
+                </div>
+                <div class="project-card card">
+                    <h3>Personal Portfolio Website</h3>
+                    <p>Developed a responsive and interactive personal portfolio to showcase my skills, projects, and professional journey. This project was a deep dive into modern web development practices, focusing on UI/UX, animations, and building a strong online presence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Experience Section -->
+        <section id="experience" class="hidden">
+            <h2>Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item timeline-left">
+                    <div class="timeline-content">
+                        <h3>Intern at HexSoftwares</h3>
+                        <span class="date">Feb 2025 – May 2025</span>
+                        <p>Developed and maintained web applications, practiced Python programming in a team, and gained exposure to software development workflows and version control with Git.</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-right">
+                    <div class="timeline-content">
+                        <h3>Tutor in Business Numerical Skills</h3>
+                        <span class="date">April 2024 – Nov 2024</span>
+                        <p>Provided academic support to first-year students at Nelson Mandela University, explaining quantitative concepts and guiding them through problem-solving exercises.</p>
+                    </div>
+                </div>
+                <div class="timeline-item timeline-left">
+                    <div class="timeline-content">
+                        <h3>Community Outreach Volunteer</h3>
+                        <span class="date">Mar 2022 – Jan 2024</span>
+                        <p>At Hello Foundation, I helped with meal preparation, visited hospitals to offer companionship, and designed outreach programs for individuals with health challenges.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Certifications Section -->
+        <section id="education" class="hidden">
+            <h2>Education & Certifications</h2>
+            <div class="card">
+                <h3>BSc in Information Technology</h3>
+                <p><strong>Nelson Mandela University (NMMU)</strong> | <em>Feb 2024 – April 2026 (Expected)</em></p>
+                <br>
+                <h3>Key Certifications</h3>
+                <ul>
+                    <li>Google IT Support Professional Certificate (2025)</li>
+                    <li>Cisco Certified Network Associate (CCNA) (2025)</li>
+                    <li>Microsoft Azure Fundamentals (AZ-900) (2025)</li>
+                    <li>Introduction to Cybersecurity (Cisco) (2024)</li>
+                    <li>freeCodeCamp Certifications (Responsive Web Design, JavaScript, APIs) (2024)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="hidden">
+            <h2>Get In Touch</h2>
+            <div class="card">
+                <p>I am actively seeking new opportunities and collaborations. Feel free to reach out.</p>
+                <p style="font-size: 1.2rem; margin: 20px 0;">
+                    <a href="mailto:njabulonomvete@gmail.com">njabulonomvete@gmail.com</a>
+                </p>
+                <div class="social-links">
+                    <a href="<!-- Paste Your GitHub Link Here -->" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="<!-- Paste Your LinkedIn Link Here -->" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Njabulo Nomvete. Designed with Love and Appreciation</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Particle.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // --- Particle.js Configuration ---
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#00ffff" },
+                "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" } },
+                "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } },
+                "size": { "value": 3, "random": true, "anim": { "enable": false } },
+                "line_linked": { "enable": true, "distance": 150, "color": "#00ffff", "opacity": 0.4, "width": 1 },
+                "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+                "modes": { "grab": { "distance": 400, "line_linked": { "opacity": 1 } }, "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 }, "repulse": { "distance": 100, "duration": 0.4 }, "push": { "particles_nb": 4 }, "remove": { "particles_nb": 2 } }
+            },
+            "retina_detect": true
+        });
+
+        // --- Scroll Animation Observer ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                } else {
+                    // Optional: remove class to re-animate on scroll up
+                    // entry.target.classList.remove('show');
+                }
+            });
+        });
+
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+
+</body>
+</html>
